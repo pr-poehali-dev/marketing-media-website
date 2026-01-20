@@ -503,6 +503,56 @@ const Index = () => {
                 Быстрый старт
               </Badge>
             </div>
+
+            <div className="mt-16">
+              <h3 className="text-2xl font-bold mb-8">Наша команда</h3>
+              <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <Card className="overflow-hidden border-2 hover:border-primary transition-all duration-300 group">
+                  <div className="aspect-square overflow-hidden">
+                    <img 
+                      src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/d57e6187-343e-4153-a376-367bb4110e46.jpg" 
+                      alt="Анна Кузнецова" 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6 text-center">
+                    <h4 className="text-xl font-bold mb-1">Анна Кузнецова</h4>
+                    <p className="text-muted-foreground mb-2">Стратег и аналитик</p>
+                    <p className="text-sm text-muted-foreground">15+ лет в маркетинге</p>
+                  </div>
+                </Card>
+
+                <Card className="overflow-hidden border-2 hover:border-primary transition-all duration-300 group">
+                  <div className="aspect-square overflow-hidden">
+                    <img 
+                      src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/77d4584e-b776-491d-8561-892ffbfe1132.jpg" 
+                      alt="Мария Волкова" 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6 text-center">
+                    <h4 className="text-xl font-bold mb-1">Мария Волкова</h4>
+                    <p className="text-muted-foreground mb-2">Креативный директор</p>
+                    <p className="text-sm text-muted-foreground">10+ лет в брендинге</p>
+                  </div>
+                </Card>
+
+                <Card className="overflow-hidden border-2 hover:border-primary transition-all duration-300 group">
+                  <div className="aspect-square overflow-hidden">
+                    <img 
+                      src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/802d41d8-625a-41c9-bf94-fdd9e23603ed.jpg" 
+                      alt="Елена Смирнова" 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-6 text-center">
+                    <h4 className="text-xl font-bold mb-1">Елена Смирнова</h4>
+                    <p className="text-muted-foreground mb-2">Digital-специалист</p>
+                    <p className="text-sm text-muted-foreground">8+ лет в performance</p>
+                  </div>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
