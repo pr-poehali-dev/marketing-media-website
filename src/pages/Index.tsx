@@ -89,13 +89,97 @@ const Index = () => {
     { number: '98%', label: 'Довольных клиентов' }
   ];
 
+  const cases = [
+    {
+      id: 1,
+      title: 'Интернет-магазин электроники TechStore',
+      category: 'E-commerce',
+      challenge: 'Низкая конверсия сайта (0.8%), высокая стоимость привлечения клиента',
+      solution: 'Редизайн воронки продаж, настройка ремаркетинга, внедрение персонализации',
+      results: [
+        { metric: '+320%', label: 'рост конверсии' },
+        { metric: '-45%', label: 'снижение CAC' },
+        { metric: '2.8M ₽', label: 'прирост выручки/мес' }
+      ],
+      duration: '3 месяца',
+      image: 'bg-gradient-to-br from-blue-500 to-cyan-500'
+    },
+    {
+      id: 2,
+      title: 'Сеть фитнес-клубов FitLife',
+      category: 'B2C Services',
+      challenge: 'Падение продаж абонементов, слабое присутствие в соцсетях',
+      solution: 'Запуск таргетированной рекламы, контент-стратегия в Instagram и TikTok',
+      results: [
+        { metric: '+180%', label: 'рост лидов' },
+        { metric: '250K', label: 'охват в соцсетях' },
+        { metric: '+95%', label: 'продаж абонементов' }
+      ],
+      duration: '4 месяца',
+      image: 'bg-gradient-to-br from-purple-500 to-pink-500'
+    },
+    {
+      id: 3,
+      title: 'B2B SaaS платформа CloudManager',
+      category: 'B2B Tech',
+      challenge: 'Нулевой органический трафик, длинный цикл сделки',
+      solution: 'SEO-стратегия, контент-маркетинг, email-nurturing кампании',
+      results: [
+        { metric: '+540%', label: 'органического трафика' },
+        { metric: '85', label: 'квалифицированных лидов/мес' },
+        { metric: '-30%', label: 'сокращение цикла сделки' }
+      ],
+      duration: '6 месяцев',
+      image: 'bg-gradient-to-br from-indigo-500 to-purple-500'
+    }
+  ];
+
+  const testimonials = [
+    {
+      id: 1,
+      name: 'Алексей Морозов',
+      position: 'CEO TechStore',
+      company: 'Интернет-магазин электроники',
+      text: 'За 3 месяца работы с MarketPro наша выручка выросла на 2.8 млн рублей. Команда не просто запустила рекламу — они перестроили всю воронку продаж. Главное — все решения подкреплены аналитикой.',
+      rating: 5,
+      avatar: '👨‍💼'
+    },
+    {
+      id: 2,
+      name: 'Мария Светлова',
+      position: 'Marketing Director',
+      company: 'Сеть фитнес-клубов FitLife',
+      text: 'Наконец-то нашли агентство, которое говорит на языке бизнеса, а не креативных абстракций. Каждый месяц получаем отчеты с реальными цифрами ROI. Продажи абонементов выросли почти в 2 раза.',
+      rating: 5,
+      avatar: '👩‍💼'
+    },
+    {
+      id: 3,
+      name: 'Дмитрий Кодов',
+      position: 'Founder',
+      company: 'CloudManager SaaS',
+      text: 'Скептически относился к агентствам, но MarketPro превзошли ожидания. За полгода вывели нас в топ поисковой выдачи, органический трафик вырос в 5 раз. Теперь лиды приходят сами.',
+      rating: 5,
+      avatar: '👨‍💻'
+    },
+    {
+      id: 4,
+      name: 'Елена Новикова',
+      position: 'Владелец',
+      company: 'Сеть кофеен CoffeeLab',
+      text: 'Ребята не только настроили рекламу, но и обучили нашу команду работать с аналитикой. Теперь мы самостоятельно отслеживаем эффективность каждого канала. Трафик в точки вырос на 60%.',
+      rating: 5,
+      avatar: '☕'
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-lg border-b border-border shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="text-2xl font-bold text-primary">MarketPro</div>
           <div className="hidden md:flex gap-8">
-            {['Услуги', 'Процесс', 'О нас'].map((item) => (
+            {['Кейсы', 'Услуги', 'Отзывы'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
@@ -190,6 +274,87 @@ const Index = () => {
         </div>
       </section>
 
+      <section id="кейсы" className="py-20 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title">
+              Наши <span className="text-primary">кейсы</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Реальные результаты наших клиентов — от стартапов до крупного бизнеса
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            {cases.map((caseItem, index) => (
+              <Card 
+                key={caseItem.id}
+                className="overflow-hidden border-2 hover:border-primary transition-all duration-300 bg-white"
+              >
+                <div className="grid md:grid-cols-5 gap-8">
+                  <div className={`md:col-span-2 ${caseItem.image} p-12 flex items-center justify-center text-white`}>
+                    <div className="text-center">
+                      <div className="text-6xl font-bold mb-4">{String(index + 1).padStart(2, '0')}</div>
+                      <Badge className="bg-white/20 text-white border-white/30 backdrop-blur-sm">
+                        {caseItem.category}
+                      </Badge>
+                    </div>
+                  </div>
+                  
+                  <div className="md:col-span-3 p-8">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4">{caseItem.title}</h3>
+                    
+                    <div className="space-y-4 mb-6">
+                      <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <Icon name="AlertCircle" className="text-destructive" size={20} />
+                          <span className="font-semibold">Задача:</span>
+                        </div>
+                        <p className="text-muted-foreground pl-7">{caseItem.challenge}</p>
+                      </div>
+                      
+                      <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <Icon name="Lightbulb" className="text-primary" size={20} />
+                          <span className="font-semibold">Решение:</span>
+                        </div>
+                        <p className="text-muted-foreground pl-7">{caseItem.solution}</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-muted/30 rounded-lg p-6">
+                      <div className="flex items-center gap-2 mb-4">
+                        <Icon name="TrendingUp" className="text-primary" size={20} />
+                        <span className="font-semibold">Результаты за {caseItem.duration}:</span>
+                      </div>
+                      <div className="grid grid-cols-3 gap-4">
+                        {caseItem.results.map((result, i) => (
+                          <div key={i} className="text-center">
+                            <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{result.metric}</div>
+                            <div className="text-sm text-muted-foreground">{result.label}</div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-white"
+            >
+              <Icon name="FileText" className="mr-2" />
+              Скачать полные кейсы (PDF)
+            </Button>
+          </div>
+        </div>
+      </section>
+
       <section id="услуги" className="py-20 px-6 bg-gradient-to-b from-muted/30 to-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -249,6 +414,59 @@ const Index = () => {
                 )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="отзывы" className="py-20 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title">
+              Что говорят наши <span className="text-primary">клиенты</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Отзывы тех, кто уже получил результаты
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial) => (
+              <Card 
+                key={testimonial.id}
+                className="p-8 border-2 hover:border-primary hover:shadow-xl transition-all duration-300 bg-white"
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Icon key={i} name="Star" className="text-yellow-400 fill-yellow-400" size={20} />
+                  ))}
+                </div>
+                
+                <p className="text-lg text-muted-foreground mb-6 leading-relaxed italic">
+                  "{testimonial.text}"
+                </p>
+                
+                <div className="flex items-center gap-4 pt-4 border-t border-border">
+                  <div className="text-4xl">{testimonial.avatar}</div>
+                  <div>
+                    <div className="font-bold text-lg">{testimonial.name}</div>
+                    <div className="text-sm text-muted-foreground">{testimonial.position}</div>
+                    <div className="text-sm text-primary">{testimonial.company}</div>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground mb-6">Хотите так же? Начнём с бесплатной консультации</p>
+            <Button 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90"
+              onClick={() => scrollToSection('контакт')}
+            >
+              <Icon name="MessageCircle" className="mr-2" />
+              Обсудить проект
+            </Button>
           </div>
         </div>
       </section>
