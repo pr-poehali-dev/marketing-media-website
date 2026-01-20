@@ -2,386 +2,384 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const [activeSection, setActiveSection] = useState('hero');
+  const [formData, setFormData] = useState({ name: '', contact: '' });
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
-    setActiveSection(id);
   };
 
-  const cases = [
+  const advantages = [
     {
-      id: 1,
-      title: 'Ребрендинг FinTech',
-      category: 'Брендинг',
-      description: 'Полное переосмысление визуальной идентичности для стартапа в сфере финансовых технологий',
-      metrics: '+340% узнаваемости',
-      color: 'from-purple-600 to-pink-600'
+      icon: 'Target',
+      title: 'Фокус на ROI',
+      description: 'Каждый рубль в бюджете должен работать. Мы считаем окупаемость каждого канала.'
     },
     {
-      id: 2,
-      title: 'E-commerce платформа',
-      category: 'Веб-разработка',
-      description: 'Создание высоконагруженной платформы с AI-рекомендациями для 50К+ пользователей',
-      metrics: '+180% конверсии',
-      color: 'from-blue-600 to-purple-600'
+      icon: 'Puzzle',
+      title: 'Комплексный подход',
+      description: 'От дизайна и контента до настройки аналитики. Все элементы работают как один механизм.'
     },
     {
-      id: 3,
-      title: 'Social Media для FMCG',
-      category: 'SMM',
-      description: 'Вирусная кампания для товаров повседневного спроса в TikTok и Instagram',
-      metrics: '12M охвата',
-      color: 'from-pink-600 to-orange-600'
+      icon: 'TrendingUp',
+      title: 'Прозрачность и отчетность',
+      description: 'Вы всегда видите, как растут ваши ключевые показатели: LTV, CAC, конверсии.'
     },
     {
-      id: 4,
-      title: 'AR презентация для авто',
-      category: 'Digital',
-      description: 'Интерактивное дополненной реальности приложение для автосалона премиум класса',
-      metrics: '+250% лидов',
-      color: 'from-cyan-600 to-blue-600'
+      icon: 'Users',
+      title: 'Опытная команда',
+      description: 'Над вашим проектом работает слаженная команда стратегов, аналитиков, креаторов и таргетологов.'
     }
   ];
 
-  const team = [
-    { name: 'Алекс Громов', role: 'Креативный директор', emoji: '🎨' },
-    { name: 'Марина Светлова', role: 'Стратег', emoji: '📊' },
-    { name: 'Денис Код', role: 'Tech Lead', emoji: '⚡' },
-    { name: 'Яна Медиа', role: 'SMM Manager', emoji: '📱' }
-  ];
-
-  const blogPosts = [
+  const services = [
     {
-      id: 1,
-      title: 'Нейромаркетинг в 2026: как AI меняет правила игры',
-      excerpt: 'Искусственный интеллект уже не просто тренд — это инструмент, который позволяет предугадывать желания аудитории...',
-      date: '15 янв 2026',
-      readTime: '7 мин'
+      title: 'Стратегия и аналитика',
+      items: ['Аудит маркетинга', 'Разработка стратегии продвижения', 'Внедрение сквозной аналитики'],
+      icon: 'LineChart'
     },
     {
-      id: 2,
-      title: 'Микроинтеракции: почему детали решают всё',
-      excerpt: 'Разбираем 10 примеров микроанимаций, которые повышают конверсию на 40% и создают эмоциональную связь...',
-      date: '12 янв 2026',
-      readTime: '5 мин'
+      title: 'Digital-продвижение',
+      items: ['Контекстная и таргетированная реклама', 'SEO-оптимизация и рост трафика', 'Продвижение в социальных сетях (SMM)'],
+      icon: 'Megaphone'
     },
     {
-      id: 3,
-      title: 'От TikTok к метавселенным: эволюция контента',
-      excerpt: 'Как изменился подход к созданию контента за последние 3 года и куда движется индустрия в эпоху Web3...',
-      date: '08 янв 2026',
-      readTime: '9 мин'
+      title: 'Создание и развитие бренда',
+      items: ['Разработка айдентики и дизайна', 'Производство контента: текст, фото, видео', 'Создание и поддержка сайтов/лендингов'],
+      icon: 'Sparkles'
+    },
+    {
+      title: 'Автоматизация продаж',
+      items: ['Настройка CRM-систем', 'Проектирование воронок продаж', 'Email- и мессенджер-маркетинг'],
+      icon: 'Zap'
     }
   ];
 
-  const videos = [
+  const process = [
     {
-      id: 1,
-      title: 'Как мы создали вирусную кампанию для FinTech',
-      type: 'video',
-      duration: '12:34',
-      thumbnail: 'bg-gradient-to-br from-purple-500 to-pink-500'
+      number: '01',
+      title: 'Погружение и анализ',
+      description: 'Изучаем ваш бизнес, рынок и аудиторию. Ставим измеримые цели.'
     },
     {
-      id: 2,
-      title: 'Подкаст: Будущее маркетинга с AI',
-      type: 'audio',
-      duration: '45:20',
-      thumbnail: 'bg-gradient-to-br from-blue-500 to-cyan-500'
+      number: '02',
+      title: 'Стратегия и план',
+      description: 'Разрабатываем детальный план продвижения с KPI и этапами.'
     },
     {
-      id: 3,
-      title: 'Таймлапс: 48 часов ребрендинга',
-      type: 'video',
-      duration: '08:15',
-      thumbnail: 'bg-gradient-to-br from-orange-500 to-pink-500'
+      number: '03',
+      title: 'Реализация и запуск',
+      description: 'Воплощаем стратегию в жизнь: креатив, настройка, программирование.'
     },
     {
-      id: 4,
-      title: 'Интервью: Секреты креативного мышления',
-      type: 'audio',
-      duration: '32:10',
-      thumbnail: 'bg-gradient-to-br from-indigo-500 to-purple-500'
+      number: '04',
+      title: 'Мониторинг и оптимизация',
+      description: 'Постоянно анализируем данные, тестируем и улучшаем результаты.'
     }
+  ];
+
+  const stats = [
+    { number: '150+', label: 'Реализованных проектов' },
+    { number: '40%', label: 'Средний рост конверсии' },
+    { number: '5 лет', label: 'На рынке' },
+    { number: '98%', label: 'Довольных клиентов' }
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden">
-      <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-border">
+    <div className="min-h-screen bg-background text-foreground">
+      <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-lg border-b border-border shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold text-gradient">NOVA</div>
+          <div className="text-2xl font-bold text-primary">MarketPro</div>
           <div className="hidden md:flex gap-8">
-            {['Кейсы', 'О нас', 'Блог', 'Видео'].map((item) => (
+            {['Услуги', 'Процесс', 'О нас'].map((item) => (
               <button
                 key={item}
-                onClick={() => scrollToSection(item.toLowerCase().replace(' ', '-'))}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                onClick={() => scrollToSection(item.toLowerCase())}
+                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
               >
                 {item}
               </button>
             ))}
           </div>
-          <Button className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity">
+          <Button 
+            className="bg-primary hover:bg-primary/90"
+            onClick={() => scrollToSection('контакт')}
+          >
+            <Icon name="MessageCircle" className="mr-2" size={18} />
             Связаться
           </Button>
         </div>
       </nav>
 
-      <section id="hero" className="min-h-screen flex items-center justify-center relative pt-20 px-6">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse delay-700"></div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto text-center relative z-10">
-          <Badge className="mb-6 bg-primary/20 text-primary border-primary/30 px-4 py-2 text-sm">
-            Маркетинговое агенство будущего
-          </Badge>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-            Мы не следуем<br />
-            <span className="text-gradient">трендам</span>
-            <br />
-            Мы их создаём
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Экспериментальные стратегии, смелые решения и результаты, которые меняют рынки
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 transition-all glow text-lg px-8 py-6"
-              onClick={() => scrollToSection('кейсы')}
-            >
-              Смотреть кейсы
-              <Icon name="ArrowRight" className="ml-2" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all text-lg px-8 py-6"
-            >
-              О нас
-              <Icon name="Sparkles" className="ml-2" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <section id="кейсы" className="py-32 px-6 relative">
+      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">
-              Кейсы, которые<br />
-              <span className="text-gradient">говорят сами</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl">
-              Каждый проект — это эксперимент. Мы не боимся пробовать новое и ломать шаблоны.
+          <div className="max-w-4xl mx-auto text-center">
+            <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 px-4 py-2 text-sm">
+              Маркетинг, который работает
+            </Badge>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+              Комплексный маркетинг, который увеличивает{' '}
+              <span className="text-primary">прибыль</span>, а не просто трафик
+            </h1>
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
+              Мы строим системы привлечения и удержания клиентов. От стратегии до реализации. 
+              Измеряем успех в вашей выручке.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {cases.map((caseItem, index) => (
-              <Card 
-                key={caseItem.id}
-                className={`group relative overflow-hidden bg-card border-border hover:border-primary transition-all duration-500 cursor-pointer ${
-                  index % 2 === 0 ? 'md:translate-y-8' : 'md:-translate-y-8'
-                } hover:scale-105`}
-                style={{ 
-                  clipPath: index % 3 === 0 ? 'polygon(0 0, 100% 5%, 100% 95%, 0 100%)' : 
-                            index % 3 === 1 ? 'polygon(0 5%, 100% 0, 100% 100%, 0 95%)' : 
-                            'polygon(0 0, 100% 0, 100% 95%, 0 100%)'
-                }}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 glow"
+                onClick={() => scrollToSection('контакт')}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${caseItem.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
-                
-                <div className="p-8">
-                  <Badge className="mb-4 bg-primary/20 text-primary border-0">
-                    {caseItem.category}
-                  </Badge>
-                  <h3 className="text-3xl font-bold mb-3">{caseItem.title}</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    {caseItem.description}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-gradient">{caseItem.metrics}</span>
-                    <Icon name="ArrowUpRight" className="text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={24} />
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="о-нас" className="py-32 px-6 relative bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-5xl md:text-6xl font-bold mb-6">
-                Команда<br />
-                <span className="text-gradient">экспериментаторов</span>
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                Мы не обычное агентство. Мы — лаборатория идей, где каждый проект становится площадкой для инноваций.
-              </p>
-              <p className="text-lg text-muted-foreground mb-8">
-                С 2020 года мы помогли 150+ брендам выделиться на рынке через нестандартные маркетинговые решения. 
-                Наш подход: 70% креатива, 20% данных, 10% магии.
-              </p>
-              <Button className="bg-primary hover:bg-primary/90">
-                Узнать больше
-                <Icon name="Users" className="ml-2" />
+                <Icon name="Rocket" className="mr-2" />
+                Бесплатная консультация
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all text-lg px-8 py-6"
+                onClick={() => scrollToSection('услуги')}
+              >
+                <Icon name="Eye" className="mr-2" />
+                Смотреть услуги
               </Button>
             </div>
+          </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              {team.map((member, index) => (
-                <Card 
-                  key={index}
-                  className={`p-6 bg-card border-border hover:border-primary transition-all duration-300 hover:scale-105 ${
-                    index % 2 === 0 ? 'rotate-2' : '-rotate-2'
-                  } hover:rotate-0`}
-                >
-                  <div className="text-5xl mb-4">{member.emoji}</div>
-                  <h4 className="text-xl font-bold mb-1">{member.name}</h4>
-                  <p className="text-sm text-muted-foreground">{member.role}</p>
-                </Card>
-              ))}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-5xl mx-auto">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
+                <div className="stats-number">{stat.number}</div>
+                <div className="text-muted-foreground mt-2">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title">
+              Маркетинг как <span className="text-primary">точная наука</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Мы не верим в «волшебные таблетки». Наша работа строится на анализе, проверенных гипотезах 
+              и глубоком понимании вашего бизнеса.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {advantages.map((advantage, index) => (
+              <Card 
+                key={index} 
+                className="p-8 border-2 hover:border-primary hover:shadow-lg transition-all duration-300 bg-white"
+              >
+                <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+                  <Icon name={advantage.icon as any} className="text-primary" size={32} />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{advantage.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{advantage.description}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="услуги" className="py-20 px-6 bg-gradient-to-b from-muted/30 to-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title">
+              Мы закрываем все задачи <span className="text-primary">digital-маркетинга</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Выберите нужное направление или закажите комплексное решение под ключ
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {services.map((service, index) => (
+              <Card 
+                key={index}
+                className="p-8 bg-white border-2 hover:border-primary hover:shadow-xl transition-all duration-300 group"
+              >
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                    <Icon name={service.icon as any} className="text-white" size={28} />
+                  </div>
+                  <h3 className="text-2xl font-bold">{service.title}</h3>
+                </div>
+                <ul className="space-y-3">
+                  {service.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <Icon name="CheckCircle2" className="text-primary flex-shrink-0 mt-1" size={20} />
+                      <span className="text-muted-foreground">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="процесс" className="py-20 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="section-title">
+              Понятный процесс от <span className="text-primary">идеи до результата</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Мы ценим ваше время и выстроили четкий алгоритм взаимодействия
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {process.map((step, index) => (
+              <div key={index} className="relative">
+                <div className="text-6xl font-bold text-primary/10 mb-4">{step.number}</div>
+                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                {index < process.length - 1 && (
+                  <div className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-primary/20"></div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="о-нас" className="py-20 px-6 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center">
+            <h2 className="section-title">
+              Агентство для бизнесов, которые <span className="text-primary">хотят большего</span>
+            </h2>
+            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed mt-8">
+              <p>
+                Мы — команда практиков, объединенных верой в data-driven подход. Мы не берем 
+                абонентскую плату «за воздух», а зарабатываем вместе с вами, достигая поставленных 
+                финансовых целей.
+              </p>
+              <p className="text-xl font-semibold text-foreground">
+                Наша миссия — делать маркетинг понятным, измеримым и прибыльным инструментом 
+                для каждого нашего клиента.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-6 mt-12">
+              <Badge className="bg-primary/10 text-primary border-primary/20 px-6 py-3 text-base">
+                <Icon name="Award" className="mr-2" size={18} />
+                Сертифицированные специалисты
+              </Badge>
+              <Badge className="bg-secondary/10 text-secondary border-secondary/20 px-6 py-3 text-base">
+                <Icon name="Shield" className="mr-2" size={18} />
+                Гарантия результата
+              </Badge>
+              <Badge className="bg-accent/10 text-accent border-accent/20 px-6 py-3 text-base">
+                <Icon name="Zap" className="mr-2" size={18} />
+                Быстрый старт
+              </Badge>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="блог" className="py-32 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">
-              <span className="text-gradient">Блог</span> о маркетинге
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl">
-              Инсайты, тренды и нестандартные взгляды на индустрию
-            </p>
-          </div>
+      <section id="контакт" className="py-20 px-6 bg-gradient-to-br from-primary to-secondary text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Готовы вывести бизнес на новую высоту?
+          </h2>
+          <p className="text-xl mb-12 opacity-90">
+            Обсудим ваши задачи и предложим стратегию роста. Первая консультация — бесплатно 
+            и ни к чему не обязывает.
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <Card 
-                key={post.id}
-                className="group bg-card border-border hover:border-primary transition-all duration-300 cursor-pointer overflow-hidden hover:scale-105"
-                style={{
-                  clipPath: index === 0 ? 'polygon(0 0, 100% 0, 100% 90%, 0 100%)' : 
-                            index === 1 ? 'polygon(0 0, 100% 0, 100% 100%, 0 95%)' :
-                            'polygon(0 0, 100% 5%, 100% 100%, 0 100%)'
-                }}
+          <Card className="p-8 bg-white text-foreground max-w-2xl mx-auto">
+            <div className="space-y-6">
+              <div>
+                <Input
+                  placeholder="Ваше имя"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="h-12 text-lg"
+                />
+              </div>
+              <div>
+                <Input
+                  placeholder="Телефон или Email"
+                  value={formData.contact}
+                  onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                  className="h-12 text-lg"
+                />
+              </div>
+              <Button 
+                size="lg" 
+                className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
               >
-                <div className="p-6">
-                  <div className="flex items-center gap-3 text-sm text-muted-foreground mb-4">
-                    <span className="flex items-center gap-1">
-                      <Icon name="Calendar" size={16} />
-                      {post.date}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Icon name="Clock" size={16} />
-                      {post.readTime}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {post.excerpt}
-                  </p>
-                  <Button variant="link" className="p-0 text-primary group-hover:translate-x-2 transition-transform">
-                    Читать далее
-                    <Icon name="ArrowRight" className="ml-1" size={16} />
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
+                <Icon name="Send" className="mr-2" />
+                Обсудить проект
+              </Button>
+              <p className="text-sm text-muted-foreground">
+                Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+              </p>
+            </div>
+          </Card>
         </div>
       </section>
 
-      <section id="видео" className="py-32 px-6 relative bg-muted/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold mb-4">
-              <span className="text-gradient">Видеотека</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl">
-              Смотрите и слушайте наши кейсы, подкасты и инсайты
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {videos.map((video) => (
-              <Card 
-                key={video.id}
-                className="group bg-card border-border hover:border-primary transition-all duration-300 cursor-pointer overflow-hidden hover:scale-105"
-              >
-                <div className={`h-48 ${video.thumbnail} flex items-center justify-center relative`}>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-                  <Icon 
-                    name={video.type === 'video' ? 'Play' : 'Music'} 
-                    size={48} 
-                    className="text-white z-10 group-hover:scale-110 transition-transform"
-                  />
-                  <div className="absolute bottom-3 right-3 bg-black/70 px-2 py-1 rounded text-white text-sm">
-                    {video.duration}
-                  </div>
-                </div>
-                <div className="p-4">
-                  <Badge className="mb-2 text-xs">
-                    {video.type === 'video' ? '🎬 Видео' : '🎧 Аудио'}
-                  </Badge>
-                  <h4 className="font-semibold text-lg group-hover:text-primary transition-colors">
-                    {video.title}
-                  </h4>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <footer className="py-16 px-6 border-t border-border">
+      <footer className="py-12 px-6 bg-foreground text-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             <div>
-              <div className="text-3xl font-bold text-gradient mb-4">NOVA</div>
-              <p className="text-muted-foreground">
+              <div className="text-3xl font-bold mb-4 text-primary">MarketPro</div>
+              <p className="text-gray-400">
                 Маркетинговое агенство нового поколения
               </p>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Контакты</h4>
-              <div className="space-y-2 text-muted-foreground">
-                <p>hello@nova.agency</p>
-                <p>+7 (495) 123-45-67</p>
+              <h4 className="font-bold mb-4 text-lg">Контакты</h4>
+              <div className="space-y-3 text-gray-400">
+                <p className="flex items-center gap-2">
+                  <Icon name="Mail" size={18} />
+                  hello@marketpro.agency
+                </p>
+                <p className="flex items-center gap-2">
+                  <Icon name="Phone" size={18} />
+                  +7 (495) 123-45-67
+                </p>
               </div>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Социальные сети</h4>
+              <h4 className="font-bold mb-4 text-lg">Социальные сети</h4>
               <div className="flex gap-4">
-                <Button variant="outline" size="icon" className="hover:border-primary">
+                <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
                   <Icon name="Instagram" />
                 </Button>
-                <Button variant="outline" size="icon" className="hover:border-primary">
+                <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
                   <Icon name="Youtube" />
                 </Button>
-                <Button variant="outline" size="icon" className="hover:border-primary">
+                <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
                   <Icon name="Linkedin" />
+                </Button>
+                <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
+                  <Icon name="Send" />
                 </Button>
               </div>
             </div>
           </div>
-          <div className="text-center text-muted-foreground text-sm pt-8 border-t border-border">
-            © 2026 NOVA Agency. Все права защищены.
+          <div className="border-t border-gray-700 pt-8 text-center text-gray-400 text-sm">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+              <p>© 2026 MarketPro. Все права защищены.</p>
+              <div className="flex gap-6">
+                <a href="#" className="hover:text-primary transition-colors">Политика конфиденциальности</a>
+                <a href="#" className="hover:text-primary transition-colors">Публичная оферта</a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
