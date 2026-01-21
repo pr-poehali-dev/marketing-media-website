@@ -347,10 +347,7 @@ const Index = () => {
               size="lg" 
               variant="outline"
               className="border-2 border-primary text-primary hover:bg-primary hover:text-white"
-            >
-              <Icon name="FileText" className="mr-2" />
-              Скачать полные кейсы (PDF)
-            </Button>
+            ></Button>
           </div>
         </div>
       </section>
@@ -471,7 +468,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="о-нас" className="py-20 px-6 bg-gradient-to-br from-primary/5 to-secondary/5">
+      <section id="о-нас" className="">
         <div className="max-w-5xl mx-auto">
           <div className="text-center">
             <h2 className="section-title">
@@ -490,18 +487,9 @@ const Index = () => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-6 mt-12">
-              <Badge className="bg-primary/10 text-primary border-primary/20 px-6 py-3 text-base">
-                <Icon name="Award" className="mr-2" size={18} />
-                Сертифицированные специалисты
-              </Badge>
-              <Badge className="bg-secondary/10 text-secondary border-secondary/20 px-6 py-3 text-base">
-                <Icon name="Shield" className="mr-2" size={18} />
-                Гарантия результата
-              </Badge>
-              <Badge className="bg-accent/10 text-accent border-accent/20 px-6 py-3 text-base">
-                <Icon name="Zap" className="mr-2" size={18} />
-                Быстрый старт
-              </Badge>
+              <Badge className="bg-primary/10 text-primary border-primary/20 px-6 py-3 text-base"></Badge>
+              <Badge className="bg-secondary/10 text-secondary border-secondary/20 px-6 py-3 text-base"></Badge>
+              <Badge className="bg-accent/10 text-accent border-accent/20 px-6 py-3 text-base"></Badge>
             </div>
 
             <div className="mt-16">
