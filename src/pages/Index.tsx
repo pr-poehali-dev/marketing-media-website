@@ -519,7 +519,7 @@ const Index = () => {
                     />
                   </div>
                   <div className="p-6 text-center">
-                    <h4 className="text-xl font-bold mb-1">Мария Волкова</h4>
+                    <h4 className="text-xl font-bold mb-1">Ксения</h4>
                     <p className="text-muted-foreground mb-2">Креативный директор</p>
                     <p className="text-sm text-muted-foreground">10+ лет в брендинге</p>
                   </div>
@@ -534,7 +534,7 @@ const Index = () => {
                     />
                   </div>
                   <div className="p-6 text-center">
-                    <h4 className="text-xl font-bold mb-1">Елена Смирнова</h4>
+                    <h4 className="text-xl font-bold mb-1">Анна</h4>
                     <p className="text-muted-foreground mb-2">Digital-специалист</p>
                     <p className="text-sm text-muted-foreground">8+ лет в performance</p>
                   </div>
