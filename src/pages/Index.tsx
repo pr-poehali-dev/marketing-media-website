@@ -504,7 +504,7 @@ const Index = () => {
                     />
                   </div>
                   <div className="p-6 text-center">
-                    <h4 className="text-xl font-bold mb-1">Анна Кузнецова</h4>
+                    <h4 className="text-xl font-bold mb-1">Елизавета</h4>
                     <p className="text-muted-foreground mb-2">Стратег и аналитик</p>
                     <p className="text-sm text-muted-foreground">15+ лет в маркетинге</p>
                   </div>
