@@ -9,7 +9,7 @@ const Header = ({ scrollToSection }: HeaderProps) => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-primary/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="text-3xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">MarketPro</div>
+        <div className="text-3xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent rounded-3xl">MarketPro</div>
         <div className="hidden md:flex gap-10">
           {['Кейсы', 'Услуги', 'Отзывы'].map((item) => (
             <button
