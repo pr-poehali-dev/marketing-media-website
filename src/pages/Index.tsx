@@ -92,7 +92,8 @@ const Index = () => {
   const cases = [
     {
       id: 1,
-      title: 'Интернет-магазин электроники TechStore',
+      title: 'TechStore',
+      subtitle: 'Интернет-магазин электроники',
       category: 'E-commerce',
       challenge: 'Низкая конверсия сайта (0.8%), высокая стоимость привлечения клиента',
       solution: 'Редизайн воронки продаж, настройка ремаркетинга, внедрение персонализации',
@@ -102,11 +103,12 @@ const Index = () => {
         { metric: '2.8M ₽', label: 'прирост выручки/мес' }
       ],
       duration: '3 месяца',
-      image: 'bg-gradient-to-br from-blue-500 to-cyan-500'
+      image: 'https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/files/57fee522-221a-4fe3-81e8-b45ba8ca07e9.jpg'
     },
     {
       id: 2,
-      title: 'Сеть фитнес-клубов FitLife',
+      title: 'FitLife',
+      subtitle: 'Сеть фитнес-клубов',
       category: 'B2C Services',
       challenge: 'Падение продаж абонементов, слабое присутствие в соцсетях',
       solution: 'Запуск таргетированной рекламы, контент-стратегия в Instagram и TikTok',
@@ -116,11 +118,12 @@ const Index = () => {
         { metric: '+95%', label: 'продаж абонементов' }
       ],
       duration: '4 месяца',
-      image: 'bg-gradient-to-br from-purple-500 to-pink-500'
+      image: 'https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/files/db607940-a782-4dba-8401-e10803ea73b3.jpg'
     },
     {
       id: 3,
-      title: 'B2B SaaS платформа CloudManager',
+      title: 'CloudManager',
+      subtitle: 'B2B SaaS платформа',
       category: 'B2B Tech',
       challenge: 'Нулевой органический трафик, длинный цикл сделки',
       solution: 'SEO-стратегия, контент-маркетинг, email-nurturing кампании',
@@ -130,7 +133,7 @@ const Index = () => {
         { metric: '-30%', label: 'сокращение цикла сделки' }
       ],
       duration: '6 месяцев',
-      image: 'bg-gradient-to-br from-indigo-500 to-purple-500'
+      image: 'https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/files/6e6d5cc8-e8a6-4b11-9036-43fe3ec6f201.jpg'
     }
   ];
 
@@ -162,35 +165,28 @@ const Index = () => {
       rating: 5,
       avatar: '👨‍💻'
     },
-    {
-      id: 4,
-      name: 'Елена Новикова',
-      position: 'Владелец',
-      company: 'Сеть кофеен CoffeeLab',
-      text: 'Ребята не только настроили рекламу, но и обучили нашу команду работать с аналитикой. Теперь мы самостоятельно отслеживаем эффективность каждого канала. Трафик в точки вырос на 60%.',
-      rating: 5,
-      avatar: '☕'
-    }
+
   ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-lg border-b border-border shadow-sm">
+      <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-xl border-b border-primary/10 shadow-lg">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-2xl font-bold text-primary">MarketPro</div>
-          <div className="hidden md:flex gap-8">
+          <div className="text-3xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">MarketPro</div>
+          <div className="hidden md:flex gap-10">
             {['Кейсы', 'Услуги', 'Отзывы'].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-muted-foreground hover:text-primary transition-colors duration-300 font-medium"
+                className="text-foreground/70 hover:text-primary transition-all duration-300 font-bold text-sm uppercase tracking-wider relative group"
               >
                 {item}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"></span>
               </button>
             ))}
           </div>
           <Button 
-            className="bg-primary hover:bg-primary/90"
+            className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300"
             onClick={() => scrollToSection('контакт')}
           >
             <Icon name="MessageCircle" className="mr-2" size={18} />
@@ -201,59 +197,58 @@ const Index = () => {
 
       <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 bg-primary/10 text-primary border-primary/20 px-4 py-2 text-sm">
-              Маркетинг, который работает
+          <div className="max-w-5xl mx-auto text-center">
+            <Badge className="mb-6 bg-gradient-to-r from-primary to-secondary text-white border-0 px-6 py-2 text-sm font-bold uppercase tracking-wider shadow-lg">
+              Результат, а не обещания
             </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
               Комплексный маркетинг, который увеличивает{' '}
-              <span className="text-primary">прибыль</span>, а не просто трафик
+              <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">прибыль</span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-foreground/70 mb-12 leading-relaxed max-w-4xl mx-auto font-medium">
               Мы строим системы привлечения и удержания клиентов. От стратегии до реализации. 
               Измеряем успех в вашей выручке.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-lg px-8 py-6 glow"
+                className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white text-lg px-10 py-7 font-bold shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-300"
                 onClick={() => scrollToSection('контакт')}
               >
-                <Icon name="Rocket" className="mr-2" />
+                <Icon name="Rocket" className="mr-2" size={24} />
                 Бесплатная консультация
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all text-lg px-8 py-6"
+                className="border-3 border-primary text-primary hover:bg-primary hover:text-white transition-all text-lg px-10 py-7 font-bold shadow-lg hover:shadow-xl hover:scale-105 duration-300"
                 onClick={() => scrollToSection('услуги')}
               >
-                <Icon name="Eye" className="mr-2" />
+                <Icon name="Eye" className="mr-2" size={24} />
                 Смотреть услуги
               </Button>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 max-w-6xl mx-auto">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center animate-fade-in" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="stats-number">{stat.number}</div>
-                <div className="text-muted-foreground mt-2">{stat.label}</div>
+              <div key={index} className="text-center group">
+                <div className="text-6xl md:text-7xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">{stat.number}</div>
+                <div className="text-foreground/60 mt-3 font-semibold text-sm uppercase tracking-wider">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20 px-6 bg-white">
+      <section className="py-24 px-6 bg-gradient-to-br from-white via-primary/5 to-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="section-title">
-              Маркетинг как <span className="text-primary">точная наука</span>
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-black mb-6">
+              Почему мы <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">эффективны</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Мы не верим в «волшебные таблетки». Наша работа строится на анализе, проверенных гипотезах 
-              и глубоком понимании вашего бизнеса.
+            <p className="text-xl text-foreground/70 max-w-3xl mx-auto font-medium">
+              Наша работа строится на данных, проверенных гипотезах и глубоком понимании вашего бизнеса
             </p>
           </div>
 
@@ -261,7 +256,7 @@ const Index = () => {
             {advantages.map((advantage, index) => (
               <Card 
                 key={index} 
-                className="p-8 border-2 hover:border-primary hover:shadow-lg transition-all duration-300 bg-white"
+                className="p-8 border-0 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 bg-gradient-to-br from-white to-primary/5"
               >
                 <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
                   <Icon name={advantage.icon as any} className="text-primary" size={32} />
@@ -285,56 +280,59 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="space-y-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {cases.map((caseItem, index) => (
               <Card 
                 key={caseItem.id}
-                className="overflow-hidden border-2 hover:border-primary transition-all duration-300 bg-white"
+                className="overflow-hidden border-0 shadow-2xl hover:shadow-3xl hover:-translate-y-2 transition-all duration-500 bg-white group"
               >
-                <div className="grid md:grid-cols-5 gap-8">
-                  <div className={`md:col-span-2 ${caseItem.image} p-12 flex items-center justify-center text-white`}>
-                    <div className="text-center">
-                      <div className="text-6xl font-bold mb-4">{String(index + 1).padStart(2, '0')}</div>
-                      <Badge className="bg-white/20 text-white border-white/30 backdrop-blur-sm">
-                        {caseItem.category}
-                      </Badge>
+                <div className="relative h-64 overflow-hidden">
+                  <img 
+                    src={caseItem.image} 
+                    alt={caseItem.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <Badge className="bg-white/20 text-white border-white/30 backdrop-blur-md mb-3 text-sm">
+                      {caseItem.category}
+                    </Badge>
+                    <h3 className="text-4xl font-black text-white mb-1 tracking-tight">{caseItem.title}</h3>
+                    <p className="text-white/90 text-sm font-medium">{caseItem.subtitle}</p>
+                  </div>
+                </div>
+                
+                <div className="p-6">
+                  <div className="space-y-4 mb-6">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                        <span className="font-bold text-sm uppercase tracking-wide text-foreground/60">Задача</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{caseItem.challenge}</p>
+                    </div>
+                    
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-2 h-2 rounded-full bg-primary"></div>
+                        <span className="font-bold text-sm uppercase tracking-wide text-foreground/60">Решение</span>
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{caseItem.solution}</p>
                     </div>
                   </div>
-                  
-                  <div className="md:col-span-3 p-8">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4">{caseItem.title}</h3>
-                    
-                    <div className="space-y-4 mb-6">
-                      <div>
-                        <div className="flex items-center gap-2 mb-2">
-                          <Icon name="AlertCircle" className="text-destructive" size={20} />
-                          <span className="font-semibold">Задача:</span>
-                        </div>
-                        <p className="text-muted-foreground pl-7">{caseItem.challenge}</p>
-                      </div>
-                      
-                      <div>
-                        <div className="flex items-center gap-2 mb-2">
-                          <Icon name="Lightbulb" className="text-primary" size={20} />
-                          <span className="font-semibold">Решение:</span>
-                        </div>
-                        <p className="text-muted-foreground pl-7">{caseItem.solution}</p>
-                      </div>
-                    </div>
 
-                    <div className="bg-muted/30 rounded-lg p-6">
-                      <div className="flex items-center gap-2 mb-4">
-                        <Icon name="TrendingUp" className="text-primary" size={20} />
-                        <span className="font-semibold">Результаты за {caseItem.duration}:</span>
-                      </div>
-                      <div className="grid grid-cols-3 gap-4">
-                        {caseItem.results.map((result, i) => (
-                          <div key={i} className="text-center">
-                            <div className="text-2xl md:text-3xl font-bold text-primary mb-1">{result.metric}</div>
-                            <div className="text-sm text-muted-foreground">{result.label}</div>
-                          </div>
-                        ))}
-                      </div>
+                  <div className="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-5 border border-primary/10">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Icon name="TrendingUp" className="text-primary" size={18} />
+                      <span className="font-bold text-xs uppercase tracking-wide">Результаты за {caseItem.duration}</span>
+                    </div>
+                    <div className="space-y-3">
+                      {caseItem.results.map((result, i) => (
+                        <div key={i} className="flex items-baseline justify-between">
+                          <div className="text-2xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{result.metric}</div>
+                          <div className="text-xs text-muted-foreground uppercase tracking-wide">{result.label}</div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
