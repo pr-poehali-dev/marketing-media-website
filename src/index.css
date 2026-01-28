@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 250 100% 98%;
     --foreground: 222.2 47.4% 11.2%;
 
     --card: 0 0% 100%;
@@ -44,8 +44,17 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: "Inter", sans-serif;
+    background: linear-gradient(
+      135deg,
+      #f5f3ff 0%,
+      #fdf4ff 25%,
+      #fef3f6 50%,
+      #f0f9ff 75%,
+      #faf5ff 100%
+    );
+    background-attachment: fixed;
   }
 
   h1,
