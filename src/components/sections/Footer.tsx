@@ -89,12 +89,12 @@ const Footer = () => {
                     <Icon name="Youtube" />
                   </Button>
                 </a>
-                <a href="https://vk.com" target="_blank" rel="noopener noreferrer">
+                <a href="https://vk.com/princess_arie" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
                     <Icon name="Users" />
                   </Button>
                 </a>
-                <a href="https://t.me" target="_blank" rel="noopener noreferrer">
+                <a href="https://t.me/senia_miraiy" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
                     <Icon name="Send" />
                   </Button>
