@@ -37,13 +37,15 @@ const Footer = () => {
                   className="h-12 text-lg"
                 />
               </div>
-              <Button 
-                size="lg" 
-                className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
-              >
-                <Icon name="Send" className="mr-2" />
-                Обсудить проект
-              </Button>
+              <a href="https://vk.com/sadness_kim" target="_blank" rel="noopener noreferrer" className="block w-full">
+                <Button 
+                  size="lg" 
+                  className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
+                >
+                  <Icon name="Send" className="mr-2" />
+                  Связаться в VK
+                </Button>
+              </a>
               <p className="text-sm text-muted-foreground">
                 Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
               </p>
@@ -64,10 +66,10 @@ const Footer = () => {
             <div>
               <h4 className="font-bold mb-4 text-lg">Контакты</h4>
               <div className="space-y-3 text-gray-400">
-                <p className="flex items-center gap-2">
+                <a href="mailto:gavrilowa.nyusya@yandex.ru" className="flex items-center gap-2 hover:text-primary transition-colors">
                   <Icon name="Mail" size={18} />
-                  hello@marketpro.agency
-                </p>
+                  gavrilowa.nyusya@yandex.ru
+                </a>
                 <p className="flex items-center gap-2">
                   <Icon name="Phone" size={18} />
                   +7 (495) 123-45-67
@@ -77,18 +79,31 @@ const Footer = () => {
             <div>
               <h4 className="font-bold mb-4 text-lg">Социальные сети</h4>
               <div className="flex gap-4">
-                <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
-                  <Icon name="Instagram" />
-                </Button>
-                <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
-                  <Icon name="Youtube" />
-                </Button>
-                <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
-                  <Icon name="Linkedin" />
-                </Button>
-                <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
-                  <Icon name="Send" />
-                </Button>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
+                    <Icon name="Instagram" />
+                  </Button>
+                </a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
+                    <Icon name="Youtube" />
+                  </Button>
+                </a>
+                <a href="https://vk.com" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
+                    <Icon name="Users" />
+                  </Button>
+                </a>
+                <a href="https://t.me" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
+                    <Icon name="Send" />
+                  </Button>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                  <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
+                    <Icon name="Twitter" />
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

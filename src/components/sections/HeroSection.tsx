@@ -86,8 +86,13 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
 
   return (
     <>
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50">
-        <div className="max-w-7xl mx-auto">
+      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div className="absolute top-10 left-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-96 h-96 bg-secondary rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute bottom-20 left-1/3 w-80 h-80 bg-primary rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <Badge className="mb-6 bg-gradient-to-r from-primary to-secondary text-white border-0 px-6 py-2 text-sm font-bold uppercase tracking-wider shadow-lg">РЕЗУЛЬТАТ, А НЕ ОБЩЕНИЕ</Badge>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
@@ -130,8 +135,11 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
         </div>
       </section>
 
-      <section className="py-24 px-6 bg-gradient-to-br from-white via-primary/5 to-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-24 px-6 bg-gradient-to-br from-white via-blue-50 to-purple-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full" style={{backgroundImage: 'radial-gradient(circle at 20% 50%, hsl(var(--primary)) 0%, transparent 50%), radial-gradient(circle at 80% 80%, hsl(var(--secondary)) 0%, transparent 50%)'}}></div>
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl font-black mb-6">
               Почему мы <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">эффективны</span>
@@ -158,8 +166,18 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
         </div>
       </section>
 
-      <section id="услуги" className="py-20 px-6 bg-gradient-to-b from-muted/30 to-white">
-        <div className="max-w-7xl mx-auto">
+      <section id="услуги" className="py-20 px-6 bg-gradient-to-br from-pink-50 via-white to-blue-50 relative">
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h2 className="section-title">
               Мы закрываем все задачи <span className="text-primary">digital-маркетинга</span>
@@ -195,103 +213,129 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
         </div>
       </section>
 
-      <section id="процесс" className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-20 px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative">
+        <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary via-secondary to-primary"></div>
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <h2 className="section-title">
-              Понятный процесс от <span className="text-primary">идеи до результата</span>
+              Как мы <span className="text-primary">работаем</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Мы ценим ваше время и выстроили четкий алгоритм взаимодействия
+              Прозрачный процесс от знакомства до результата
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {process.map((step, index) => (
-              <div key={index} className="relative">
-                <div className="text-6xl font-bold text-primary/10 mb-4">{step.number}</div>
-                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-                {index < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-primary/20"></div>
-                )}
-              </div>
+              <Card 
+                key={index}
+                className="p-6 bg-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden group"
+              >
+                <div className="absolute top-0 right-0 text-8xl font-black text-primary/5 group-hover:text-primary/10 transition-colors duration-300">{step.number}</div>
+                <div className="relative z-10">
+                  <div className="text-4xl font-black text-primary mb-4">{step.number}</div>
+                  <h3 className="text-lg font-bold mb-3">{step.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                </div>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="о-нас" className="">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center">
-            <h2 className="section-title text-[#31102b]">Агентство для бизнеса, которое хочет большего</h2>
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed mt-8">
-              <p>
-                Мы — команда практиков, объединенных верой в data-driven подход. Мы не берем 
-                абонентскую плату «за воздух», а зарабатываем вместе с вами, достигая поставленных 
-                финансовых целей.
-              </p>
-              <p className="text-xl font-semibold text-foreground">
-                Наша миссия — делать маркетинг понятным, измеримым и прибыльным инструментом 
-                для каждого нашего клиента.
-              </p>
-            </div>
+      <section className="py-20 px-6 bg-gradient-to-br from-purple-50 via-white to-pink-50 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5 pointer-events-none">
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-secondary rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+          <div className="absolute top-20 left-20 w-80 h-80 bg-primary rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{animationDelay: '3s'}}></div>
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="section-title">
+              Наша <span className="text-primary">команда</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Профессионалы, которые работают над вашим успехом
+            </p>
+          </div>
 
-            <div className="flex flex-wrap justify-center gap-6 mt-12">
-              <Badge className="bg-primary/10 text-primary border-primary/20 px-6 py-3 text-base"></Badge>
-              <Badge className="bg-secondary/10 text-secondary border-secondary/20 px-6 py-3 text-base"></Badge>
-              <Badge className="bg-accent/10 text-accent border-accent/20 px-6 py-3 text-base"></Badge>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <a 
+              href="https://vk.com/e0ardasheva"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <Card className="overflow-hidden border-2 hover:border-primary transition-all duration-300">
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/56a95dc5-ab28-4d00-8d63-c3ca3da1ed94.jpg" 
+                    alt="Александра Новикова" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6 text-center bg-white">
+                  <h4 className="text-xl font-bold mb-1">Александра</h4>
+                  <p className="text-muted-foreground mb-2">Основатель & Стратег</p>
+                  <p className="text-sm text-muted-foreground mb-3">15+ лет в маркетинге</p>
+                  <div className="flex justify-center gap-2">
+                    <Icon name="ExternalLink" className="text-primary" size={20} />
+                    <span className="text-sm text-primary font-semibold">VK профиль</span>
+                  </div>
+                </div>
+              </Card>
+            </a>
 
-            <div className="mt-16">
-              <h3 className="text-2xl font-bold mb-8">Наша команда</h3>
-              <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <Card className="overflow-hidden border-2 hover:border-primary transition-all duration-300 group">
-                  <div className="aspect-square overflow-hidden">
-                    <img 
-                      src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/d57e6187-343e-4153-a376-367bb4110e46.jpg" 
-                      alt="Анна Кузнецова" 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+            <a 
+              href="https://vk.com/sadness_kim"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <Card className="overflow-hidden border-2 hover:border-primary transition-all duration-300">
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/77d4584e-b776-491d-8561-892ffbfe1132.jpg" 
+                    alt="Мария Волкова" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6 text-center bg-white">
+                  <h4 className="text-xl font-bold mb-1">Ксения</h4>
+                  <p className="text-muted-foreground mb-2">Креативный директор</p>
+                  <p className="text-sm text-muted-foreground mb-3">10+ лет в брендинге</p>
+                  <div className="flex justify-center gap-2">
+                    <Icon name="ExternalLink" className="text-primary" size={20} />
+                    <span className="text-sm text-primary font-semibold">VK профиль</span>
                   </div>
-                  <div className="p-6 text-center">
-                    <h4 className="text-xl font-bold mb-1">Елизавета</h4>
-                    <p className="text-muted-foreground mb-2">Стратег и аналитик</p>
-                    <p className="text-sm text-muted-foreground">15+ лет в маркетинге</p>
-                  </div>
-                </Card>
+                </div>
+              </Card>
+            </a>
 
-                <Card className="overflow-hidden border-2 hover:border-primary transition-all duration-300 group">
-                  <div className="aspect-square overflow-hidden">
-                    <img 
-                      src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/77d4584e-b776-491d-8561-892ffbfe1132.jpg" 
-                      alt="Мария Волкова" 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+            <a 
+              href="https://vk.com/e0ardasheva"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block group"
+            >
+              <Card className="overflow-hidden border-2 hover:border-primary transition-all duration-300">
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/802d41d8-625a-41c9-bf94-fdd9e23603ed.jpg" 
+                    alt="Елена Смирнова" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6 text-center bg-white">
+                  <h4 className="text-xl font-bold mb-1">Анна</h4>
+                  <p className="text-muted-foreground mb-2">Digital-специалист</p>
+                  <p className="text-sm text-muted-foreground mb-3">8+ лет в performance</p>
+                  <div className="flex justify-center gap-2">
+                    <Icon name="ExternalLink" className="text-primary" size={20} />
+                    <span className="text-sm text-primary font-semibold">VK профиль</span>
                   </div>
-                  <div className="p-6 text-center">
-                    <h4 className="text-xl font-bold mb-1">Ксения</h4>
-                    <p className="text-muted-foreground mb-2">Креативный директор</p>
-                    <p className="text-sm text-muted-foreground">10+ лет в брендинге</p>
-                  </div>
-                </Card>
-
-                <Card className="overflow-hidden border-2 hover:border-primary transition-all duration-300 group">
-                  <div className="aspect-square overflow-hidden">
-                    <img 
-                      src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/802d41d8-625a-41c9-bf94-fdd9e23603ed.jpg" 
-                      alt="Елена Смирнова" 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-6 text-center">
-                    <h4 className="text-xl font-bold mb-1">Анна</h4>
-                    <p className="text-muted-foreground mb-2">Digital-специалист</p>
-                    <p className="text-sm text-muted-foreground">8+ лет в performance</p>
-                  </div>
-                </Card>
-              </div>
-            </div>
+                </div>
+              </Card>
+            </a>
           </div>
         </div>
       </section>
