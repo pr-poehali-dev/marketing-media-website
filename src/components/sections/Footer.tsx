@@ -78,31 +78,24 @@ const Footer = () => {
             </div>
             <div>
               <h4 className="font-bold mb-4 text-lg">Социальные сети</h4>
-              <div className="flex gap-4">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
-                    <Icon name="Instagram" />
-                  </Button>
+              <div className="flex gap-6">
+                <a href="https://vk.com/princess_arie" target="_blank" rel="noopener noreferrer" className="group">
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110">
+                    <img 
+                      src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/files/0863c3fa-73df-4932-9aaa-1f608836c1c9.jpg" 
+                      alt="VK" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </a>
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
-                    <Icon name="Youtube" />
-                  </Button>
-                </a>
-                <a href="https://vk.com/princess_arie" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
-                    <Icon name="Users" />
-                  </Button>
-                </a>
-                <a href="https://t.me/senia_miraiy" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
-                    <Icon name="Send" />
-                  </Button>
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" size="icon" className="border-gray-600 hover:border-primary hover:bg-primary/10">
-                    <Icon name="Twitter" />
-                  </Button>
+                <a href="https://t.me/senia_miraiy" target="_blank" rel="noopener noreferrer" className="group">
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110">
+                    <img 
+                      src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/files/19f968a2-dc31-427e-a5c1-2a7383ae631b.jpg" 
+                      alt="Telegram" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 </a>
               </div>
             </div>
