@@ -268,13 +268,13 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
               <Card className="overflow-hidden border-2 hover:border-primary transition-all duration-300">
                 <div className="aspect-square overflow-hidden">
                   <img 
-                    src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/56a95dc5-ab28-4d00-8d63-c3ca3da1ed94.jpg" 
-                    alt="Александра Новикова" 
+                    src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/69b168e8-ee0d-44f5-a097-34c90288172e.jpg" 
+                    alt="Елизавета" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6 text-center bg-white">
-                  <h4 className="text-xl font-bold mb-1">Александра</h4>
+                  <h4 className="text-xl font-bold mb-1">Елизавета</h4>
                   <p className="text-muted-foreground mb-2">Основатель & Стратег</p>
                   <p className="text-sm text-muted-foreground mb-3">15+ лет в маркетинге</p>
                   <div className="flex justify-center gap-2">
@@ -312,7 +312,7 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
             </a>
 
             <a 
-              href="https://vk.com/e0ardasheva"
+              href="https://vk.com/princess_arie"
               target="_blank"
               rel="noopener noreferrer"
               className="block group"
@@ -321,7 +321,7 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
                 <div className="aspect-square overflow-hidden">
                   <img 
                     src="https://cdn.poehali.dev/projects/b2b70fa7-8bca-4ca7-a35c-a3a86b0a2867/bucket/802d41d8-625a-41c9-bf94-fdd9e23603ed.jpg" 
-                    alt="Елена Смирнова" 
+                    alt="Анна" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
