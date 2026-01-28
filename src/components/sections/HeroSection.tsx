@@ -89,9 +89,7 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
       <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-blue-50 via-white to-purple-50">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-5xl mx-auto text-center">
-            <Badge className="mb-6 bg-gradient-to-r from-primary to-secondary text-white border-0 px-6 py-2 text-sm font-bold uppercase tracking-wider shadow-lg">
-              Результат, а не обещания
-            </Badge>
+            <Badge className="mb-6 bg-gradient-to-r from-primary to-secondary text-white border-0 px-6 py-2 text-sm font-bold uppercase tracking-wider shadow-lg">РЕЗУЛЬТАТ, А НЕ ОБЩЕНИЕ</Badge>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
               Комплексный маркетинг, который увеличивает{' '}
               <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">прибыль</span>
