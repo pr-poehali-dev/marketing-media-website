@@ -224,9 +224,7 @@ const HeroSection = ({ scrollToSection }: HeroSectionProps) => {
       <section id="о-нас" className="">
         <div className="max-w-5xl mx-auto">
           <div className="text-center">
-            <h2 className="section-title">
-              Агентство для бизнесов, которые <span className="text-primary">хотят большего</span>
-            </h2>
+            <h2 className="section-title text-[#31102b]">Агентство для бизнеса, которое хочет большего</h2>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed mt-8">
               <p>
                 Мы — команда практиков, объединенных верой в data-driven подход. Мы не берем 
