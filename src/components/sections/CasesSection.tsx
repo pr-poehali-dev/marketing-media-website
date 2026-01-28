@@ -158,14 +158,6 @@ const CasesSection = ({ scrollToSection }: CasesSectionProps) => {
               </Card>
             ))}
           </div>
-
-          <div className="text-center mt-12">
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="border-2 border-primary text-primary hover:bg-primary hover:text-white"
-            ></Button>
-          </div>
         </div>
       </section>
 
